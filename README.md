@@ -2,7 +2,7 @@
 
 PortalLanding: 17 landing page dengan tujuan berbeda — click-through, lead gen, sales, webinar, hingga company profile.
 
-**Demo live:** https://www.pintuweb.com/landing-page
+**Demo live:** https://www.pintuweb.id/landing-page
 
 ![Tangkapan layar PortalLanding](public/og.jpg)
 
@@ -57,4 +57,4 @@ Buka http://localhost:3000. Untuk build produksi: `npm run build` lalu `npm star
 
 ---
 
-Dibuat oleh [PintuWeb](https://www.pintuweb.com), jasa pembuatan website.
+Dibuat oleh [PintuWeb](https://www.pintuweb.id), jasa pembuatan website.
