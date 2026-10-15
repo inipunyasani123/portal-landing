@@ -1,34 +1,40 @@
 import './globals.css';
 import { Syne, Inter } from 'next/font/google';
+import { templates } from './components/templates-data';
 
 const syne = Syne({ subsets: ['latin'], variable: '--font-syne', weight: ['600', '700', '800'] });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
-const __jsonld = {"@context":"https://schema.org","@type":"CollectionPage","name":"PortalLanding","description":"Koleksi 17 landing page","url":"https://www.pintuweb.id/landing-page","isPartOf":{"@type":"WebSite","name":"PintuWeb","url":"https://www.pintuweb.id"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PintuWeb","item":"https://www.pintuweb.id"},{"@type":"ListItem","position":2,"name":"Landing Page","item":"https://www.pintuweb.id/landing-page"}]}};
+// Merek di hasil pencarian & pratinjau tautan = PintuWeb. Jumlah demo dihitung dari data, bukan ditulis tangan.
+const URL_PORTAL = 'https://www.pintuweb.id/landing-page';
+const TITLE = `Contoh Landing Page: ${templates.length} Demo Siap Coba | PintuWeb`;
+const DESCRIPTION = `${templates.length} contoh landing page yang bisa dicoba langsung: click-through, lead gen, sales, webinar, hingga profil usaha. Pilih satu, PintuWeb sesuaikan untuk bisnismu.`;
+
+const __jsonld = {"@context":"https://schema.org","@type":"CollectionPage","name":TITLE,"description":DESCRIPTION,"url":URL_PORTAL,"inLanguage":"id-ID","isPartOf":{"@type":"WebSite","name":"PintuWeb","url":"https://www.pintuweb.id"},"publisher":{"@type":"Organization","name":"PintuWeb","url":"https://www.pintuweb.id"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"PintuWeb","item":"https://www.pintuweb.id"},{"@type":"ListItem","position":2,"name":"Landing Page","item":URL_PORTAL}]}};
 
 export const metadata = {
-  metadataBase: new URL("https://www.pintuweb.id/landing-page"),
-  title: "PortalLanding — Halaman yang Menjual",
-  description: "PortalLanding: 17 landing page dengan tujuan berbeda — click-through, lead gen, sales, webinar, hingga company profile.",
-  applicationName: "PortalLanding",
+  metadataBase: new URL(URL_PORTAL),
+  title: { default: TITLE, template: '%s | PintuWeb' },
+  description: DESCRIPTION,
+  applicationName: "PintuWeb",
   keywords: ["template landing page", "koleksi landing page", "landing page bisnis", "desain landing page"],
-  authors: [{ name: "PortalLanding" }],
-  creator: "PortalLanding",
-  publisher: "PortalLanding",
-  alternates: { canonical: "https://www.pintuweb.id/landing-page" },
+  authors: [{ name: "PintuWeb", url: "https://www.pintuweb.id" }],
+  creator: "PintuWeb",
+  publisher: "PintuWeb",
+  alternates: { canonical: URL_PORTAL },
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://www.pintuweb.id/landing-page",
-    siteName: "PortalLanding",
-    title: "PortalLanding — Halaman yang Menjual",
-    description: "PortalLanding: 17 landing page dengan tujuan berbeda — click-through, lead gen, sales, webinar, hingga company profile.",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "PortalLanding — Halaman yang Menjual" }],
+    url: URL_PORTAL,
+    siteName: "PintuWeb",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: TITLE }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PortalLanding — Halaman yang Menjual",
-    description: "PortalLanding: 17 landing page dengan tujuan berbeda — click-through, lead gen, sales, webinar, hingga company profile.",
+    title: TITLE,
+    description: DESCRIPTION,
     images: ["/og.jpg"],
   },
   robots: {

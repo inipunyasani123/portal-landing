@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Megaphone, ArrowDown, ArrowUpRight, MessageCircle, MousePointerClick, Target, TrendingUp, FileText, Paintbrush, Rocket, ChevronDown, Gauge, Search, Smartphone } from 'lucide-react';
 import { templates } from './components/templates-data';
+import { LANJUT, GALERI_LAIN, PINTUWEB } from './components/pintuweb';
 
-const WA = 'https://wa.me/6285190931399?text=Halo%2C%20saya%20tertarik%20template%20landing%20page%20di%20PortalLanding';
+const WA = 'https://wa.me/6285190931399?text=Halo%2C%20saya%20tertarik%20template%20landing%20page%20di%20PintuWeb';
 const KATEGORI = ['Semua', 'Click-Through', 'Lead Gen', 'Sales', 'Webinar', 'Produk', 'Platform', 'Profil'];
 
 const PROSES = [
@@ -49,7 +50,10 @@ export default function PortalLanding() {
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
           <a href="#top" className="flex min-w-0 items-center gap-2 font-display text-base font-extrabold sm:text-lg">
             <span className="grid h-9 w-9 place-items-center border-[3px] border-inkl bg-oranyel text-white shadow-[3px_3px_0_var(--color-inkl)]"><Megaphone size={16} /></span>
-            PortalLanding
+            <span className="flex flex-col leading-none">
+              PintuWeb{' '}
+              <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-oranyel-ink">Landing Page</span>
+            </span>
           </a>
           <div className="hidden items-center gap-6 font-display text-sm font-bold text-inkl/60 md:flex" role="navigation" aria-label="Navigasi">
             <a href="#koleksi" className="transition hover:text-oranyel">Etalase</a>
@@ -265,7 +269,10 @@ export default function PortalLanding() {
           <div>
             <p className="flex items-center justify-center gap-2 font-display text-lg font-extrabold text-kreml sm:justify-start">
               <span className="grid h-8 w-8 place-items-center border-2 border-kreml/30 bg-oranyel text-white"><Megaphone size={14} /></span>
-              PortalLanding
+              <span className="flex flex-col text-left leading-none">
+                PintuWeb{' '}
+                <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-oranyel">Landing Page</span>
+              </span>
             </p>
             <p className="mt-2 text-sm leading-relaxed">17 landing page dengan satu tujuan: membuat pengunjungmu bertindak.</p>
           </div>
@@ -285,8 +292,29 @@ export default function PortalLanding() {
             </ul>
           </div>
         </div>
-        <p className="mt-10 border-t border-kreml/10 pt-5 text-center text-xs text-kreml/65">
-          © {new Date().getFullYear()} PortalLanding · bagian dari PintuWeb — dibuat untuk konversi.
+        {/* Lanjut di PintuWeb: harga, layanan, semua demo, dan galeri lain di situs utama */}
+        <nav aria-labelledby="lanjut-pintuweb" className="mx-auto mt-10 max-w-7xl border-t border-kreml/10 pt-8 text-center text-sm sm:text-left">
+          <p id="lanjut-pintuweb" className="font-display text-xs font-bold uppercase tracking-widest text-oranyel">Lanjut di PintuWeb</p>
+          <ul className="mt-4 flex flex-wrap justify-center gap-3 sm:justify-start">
+            {LANJUT.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="inline-flex items-center gap-1.5 border-2 border-kreml/30 px-3 py-1.5 font-display text-xs font-bold text-kreml transition hover:border-oranyel hover:bg-oranyel hover:text-inkl">
+                  {l.label} <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-xs font-bold uppercase tracking-widest text-kreml/60">Galeri lain</p>
+          <ul className="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-2 sm:justify-start">
+            {GALERI_LAIN.map((g) => (
+              <li key={g.path}>
+                <a href={`${PINTUWEB}/${g.path}`} className="underline decoration-kreml/25 underline-offset-4 transition hover:text-kreml hover:decoration-oranyel">{g.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <p className="mx-auto mt-8 max-w-7xl border-t border-kreml/10 pt-5 text-center text-xs text-kreml/65">
+          © {new Date().getFullYear()} PintuWeb · Galeri Landing Page — dibuat untuk konversi.
         </p>
       </footer>
     </div>
