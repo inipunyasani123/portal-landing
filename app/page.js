@@ -91,7 +91,8 @@ export default function PortalLanding() {
               {N} template · {KATEGORI.length} tujuan konversi
             </span>
             <h1 className="mt-6 font-display text-[2.35rem] font-extrabold leading-[1.02] min-[360px]:text-[2.6rem] sm:mt-7 sm:text-7xl">
-              Halaman yang<br /><span className="bg-oranyel px-3 text-white">menjual.</span>
+              {/* Pemenggalan baris pasti (ponsel 3 baris, layar lebar 2) supaya pergantian font tidak menggeser halaman */}
+              Halaman<br className="sm:hidden" /> yang<br /><span className="bg-oranyel px-3 text-white">menjual.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base text-mutedl sm:mt-6 sm:text-lg">
               Click-through, lead gen, sales, webinar, sampai company profile — tiap halaman dirancang untuk satu hal: membuat pengunjung bertindak.
@@ -103,8 +104,7 @@ export default function PortalLanding() {
               {/* Ringkasan paket: angka dari PAKET (PintuWeb packages.ts) */}
               <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-semibold text-inkl/80">
                 <span>Mulai <strong className="font-display text-oranyel-ink">{PAKET.mulai}</strong></span>
-                <span aria-hidden="true" className="text-oranyel">→</span>
-                <span>tayang {PAKET.waktu}</span>
+                <span className="whitespace-nowrap"><span aria-hidden="true" className="mr-2 text-oranyel">→</span>tayang {PAKET.waktu}</span>
               </p>
             </div>
           </div>
