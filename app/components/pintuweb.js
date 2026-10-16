@@ -2,6 +2,24 @@
 // semua tautan ke situs utama memakai URL absolut dan <a> biasa: next/link akan menempelkan basePath.
 export const PINTUWEB = 'https://www.pintuweb.id';
 
+/** Kontak dari PintuWeb/app/lib/site.ts (WA_NUMBER, WA_DISPLAY). Ganti di sana = ganti di sini. */
+export const WA_NUMBER = '6285190931399';
+export const WA_DISPLAY = '+62 851 9093 1399';
+export const wa = (teks) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(teks)}`;
+
+/**
+ * Angka paket "landing-page" dari PintuWeb/app/lib/packages.ts (harga, waktu) dan PERF_TARGET di site.ts.
+ * Satu-satunya tempat angka bisnis di portal ini: hero, strip jaminan, dan FAQ mengambil dari sini.
+ */
+export const PAKET = {
+  nama: 'Landing Page',
+  mulai: 'Rp300 ribu',
+  sampai: 'Rp600 ribu',
+  waktu: '1–2 hari kerja',
+  waktuPendek: '1–2 hari',
+  targetSkor: '90+',
+};
+
 /** Delapan galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). */
 export const GALERI = [
   { path: 'landing-page', label: 'Landing Page' },

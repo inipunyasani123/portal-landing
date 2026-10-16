@@ -19,3 +19,9 @@ export const templates = [
   { name: 'Elevinar', kategori: 'Webinar', terjual: 7, description: 'Webinar yang dijalankan seperti pertunjukan, dengan denah kursi.', halaman: 3, sorot: 'Buku acara siap cetak', image: '/landing-page/images/landing/elevinar.webp', url: 'https://landing-elevinar.pintuweb.id' },
   { name: 'Sribu (konsep redesain)', kategori: 'Platform', terjual: 4, description: 'Konsep redesain tidak resmi: kontes desain sebagai sayembara, dengan catatan redesain.', halaman: 2, sorot: 'Simulasi “Coba jadi juri”', image: '/landing-page/images/landing/sribu.webp', url: 'https://landing-sribu.pintuweb.id' },
 ];
+
+/** "https://landing-nimbus.pintuweb.id" -> "nimbus" (sama dengan slug demo di PintuWeb/app/lib/demos.ts). */
+export const slugOf = (t) => new URL(t.url).hostname.split('.')[0].replace(/^landing-/, '');
+
+/** Tujuan konversi, urut seperti di saringan. */
+export const KATEGORI = ['Click-Through', 'Lead Gen', 'Sales', 'Webinar', 'Produk', 'Platform', 'Profil'];

@@ -2,13 +2,14 @@
 
 @theme {
   --font-display: var(--font-syne), system-ui, sans-serif;
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  /* Teks badan: tumpukan font sistem gaya Apple, sama dengan situs utama PintuWeb (tanpa unduhan font) */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   --color-inkl: #101014;
   --color-kreml: #f6f3ec;
   --color-oranyel: #ff5c1c;
   --color-oranyel-ink: #b8400f; /* oranye gelap untuk teks kecil & tombol aktif (5:1 di atas krem) */
-  --color-mutedl: #6d6a63;
+  --color-mutedl: #5f5c55;
 }
 
 html { scroll-behavior: smooth; }
@@ -22,9 +23,26 @@ body {
 
 h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 
+/* Tautan lompat ke konten: tersembunyi sampai difokus papan ketik */
+.lewati {
+  position: fixed; left: 1rem; top: 0.75rem; z-index: 60; transform: translateY(-160%);
+  border: 3px solid var(--color-inkl); background: var(--color-oranyel); color: var(--color-inkl);
+  padding: 0.5rem 1rem; font-weight: 700; font-size: 0.875rem; box-shadow: 3px 3px 0 var(--color-inkl);
+}
+.lewati:focus { transform: none; }
+main:focus { outline: none; }
+
 /* Kartu billboard: frame tebal + tiang bayangan */
-.papan { border: 3px solid var(--color-inkl); background: #fff; box-shadow: 8px 8px 0 var(--color-inkl); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.papan { border: 3px solid var(--color-inkl); background: #fff; box-shadow: 4px 4px 0 var(--color-inkl); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+@media (min-width: 640px) { .papan { box-shadow: 8px 8px 0 var(--color-inkl); } }
 .group:hover .papan { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 var(--color-oranyel); }
+
+/* Papan kosong "disewakan": garis proyek oranye */
+.sewa { background: repeating-linear-gradient(-45deg, #fff 0 16px, rgba(255, 92, 28, 0.1) 16px 32px); }
+
+/* Satu tautan per kartu: ::after menutupi kartu, cincin fokusnya digambar di seluruh kartu */
+.tautan-kartu:focus-visible { outline: none; }
+.tautan-kartu:focus-visible::after { outline: 3px solid var(--color-oranyel-ink); outline-offset: 6px; }
 
 /* Meter konversi dekoratif */
 .meter { height: 6px; border-radius: 9999px; background: repeating-linear-gradient(90deg, var(--color-oranyel) 0 14px, transparent 14px 18px); }
@@ -36,5 +54,28 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
 
 @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .animate-marquee-x { animation: marquee-x 30s linear infinite; }
+.marquee:hover .animate-marquee-x { animation-play-state: paused; }
 
-:focus-visible { outline: 3px solid var(--color-oranyel); outline-offset: 3px; }
+/* Masuk halus untuk elemen pendukung hero (judul tetap langsung tampil demi LCP) */
+@keyframes naik { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.naik { animation: naik 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.naik-2 { animation-delay: 0.12s; }
+
+/* FAQ <details>: buka-tutup halus di peramban yang mendukung */
+@supports (interpolate-size: allow-keywords) {
+  :root { interpolate-size: allow-keywords; }
+  .tanya::details-content { height: 0; overflow: clip; transition: height 0.3s ease, content-visibility 0.3s allow-discrete; }
+  .tanya[open]::details-content { height: auto; }
+}
+
+/* Kartu yang berpindah saat disaring (View Transitions) */
+::view-transition-group(*) { animation-duration: 0.35s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+
+:focus-visible { outline: 3px solid var(--color-oranyel-ink); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .animate-marquee-x { animation: none !important; }
+  .group:hover .papan { transform: none; }
+}
