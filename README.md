@@ -43,7 +43,7 @@ PortalLanding: 17 landing page dengan tujuan berbeda — click-through, lead gen
 - JavaScript
 - Framer Motion, Lucide (ikon)
 - Font: Syne, Inter (next/font)
-- Tangkapan layar tiap varian diambil dari demo live (16 Okt 2026), `public/images/landing/`; setelah mengganti gambar, buat ulang variannya dengan `node scripts/gambar-varian.mjs`
+- Tangkapan layar tiap varian diambil dari demo live (22 Okt 2026), `public/images/landing/`; setelah mengganti gambar, buat ulang variannya dengan `node scripts/gambar-varian.mjs`
 - SEO: metadata per halaman, Open Graph, JSON-LD, sitemap.xml, dan robots.txt
 
 ## Menjalankan secara lokal
