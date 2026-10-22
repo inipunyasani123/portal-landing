@@ -1,5 +1,6 @@
 // 17 landing page di koleksi. Deskripsi, jumlah halaman, dan fitur mengikuti isi tiap template (1 Okt 2026);
 // tangkapan layar diambil dari demo live.
+// lencana: false = jumlah terjual tidak ditampilkan (Sribu: konsep redesain tidak resmi untuk merek nyata); angkanya tetap.
 export const templates = [
   { name: 'Nimbus', kategori: 'Click-Through', terjual: 0, description: 'Cloud lokal dengan halaman status 90 hari dan laporan insiden terbuka.', halaman: 4, sorot: 'Kalkulator harga', image: '/landing-page/images/landing/nimbus.webp', url: 'https://landing-nimbus.pintuweb.id' },
   { name: 'EduPlay', kategori: 'Click-Through', terjual: 0, description: 'Aplikasi matematika SD kelas 1–3, sepuluh menit sehari.', halaman: 3, sorot: 'Dua permainan bisa dimainkan', image: '/landing-page/images/landing/eduplay.webp', url: 'https://landing-eduplay.pintuweb.id' },
@@ -17,7 +18,7 @@ export const templates = [
   { name: 'Lumicast', kategori: 'Webinar', terjual: 0, description: 'Siaran pelatihan untuk pengurus organisasi dengan rundown tercetak.', halaman: 3, sorot: 'Cek perangkat interaktif', image: '/landing-page/images/landing/lumicast.webp', url: 'https://landing-lumicast.pintuweb.id' },
   { name: 'NextTalks', kategori: 'Webinar', terjual: 1, description: 'Empat pembicara, satu meja, tiap Kamis kedua — plus arsip transkrip.', halaman: 5, sorot: 'Arsip bisa dicari', image: '/landing-page/images/landing/nexttalks.webp', url: 'https://landing-nexttalks.pintuweb.id' },
   { name: 'Elevinar', kategori: 'Webinar', terjual: 7, description: 'Webinar yang dijalankan seperti pertunjukan, dengan denah kursi.', halaman: 3, sorot: 'Buku acara siap cetak', image: '/landing-page/images/landing/elevinar.webp', url: 'https://landing-elevinar.pintuweb.id' },
-  { name: 'Sribu (konsep redesain)', kategori: 'Platform', terjual: 4, description: 'Konsep redesain tidak resmi: kontes desain sebagai sayembara, dengan catatan redesain.', halaman: 2, sorot: 'Simulasi “Coba jadi juri”', image: '/landing-page/images/landing/sribu.webp', url: 'https://landing-sribu.pintuweb.id' },
+  { name: 'Sribu (konsep redesain)', kategori: 'Platform', terjual: 4, lencana: false, description: 'Konsep redesain tidak resmi: kontes desain sebagai sayembara, dengan catatan redesain.', halaman: 2, sorot: 'Simulasi “Coba jadi juri”', image: '/landing-page/images/landing/sribu.webp', url: 'https://landing-sribu.pintuweb.id' },
 ];
 
 /** "https://landing-nimbus.pintuweb.id" -> "nimbus" (sama dengan slug demo di PintuWeb/app/lib/demos.ts). */

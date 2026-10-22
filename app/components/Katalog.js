@@ -66,7 +66,7 @@ export default function Katalog({ kepala }) {
                 <h3 className="font-display text-lg font-bold leading-tight sm:text-xl">{t.name}</h3>
                 <p className="mt-1 line-clamp-2 text-[13px] leading-snug text-mutedl sm:line-clamp-none sm:text-sm sm:leading-relaxed">{t.description}</p>
                 <p className="mt-2.5 flex flex-wrap items-center gap-1.5 text-[11px] font-bold sm:mt-3 sm:gap-2 sm:text-xs">
-                  {t.terjual > 0 && <span className="border-2 border-inkl bg-oranyel px-1.5 py-0.5 text-inkl sm:px-2">{t.terjual} terjual</span>}
+                  {t.terjual > 0 && t.lencana !== false && <span className="border-2 border-inkl bg-oranyel px-1.5 py-0.5 text-inkl sm:px-2">{t.terjual} terjual</span>}
                   <span className="border-2 border-inkl bg-white px-1.5 py-0.5 sm:px-2">{t.halaman} halaman</span>
                   <span className="hidden border-2 border-inkl bg-kreml px-2 py-0.5 sm:inline">{t.sorot}</span>
                 </p>
