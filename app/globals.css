@@ -56,6 +56,10 @@ main:focus { outline: none; }
 @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .animate-marquee-x { animation: marquee-x 30s linear infinite; }
 .marquee:hover .animate-marquee-x { animation-play-state: paused; }
+/* Ditahan sampai Syne termuat (html[data-font], diisi skrip kecil di layout; paling lambat 3 dtk): isi marquee (panah →
+   memakai font sistem, jadi tetap tampak dan ikut bergeser saat font berganti) dan navigasi kepala (letaknya di tengah
+   bergantung pada lebar teks Syne). Teks Syne-nya sendiri memang belum tergambar selama itu (font-display: block). */
+html:not([data-font]) .tunggu-font { visibility: hidden; }
 
 /* Masuk halus untuk elemen pendukung hero (judul tetap langsung tampil demi LCP) */
 @keyframes naik { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }

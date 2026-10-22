@@ -72,12 +72,13 @@ export default function PortalLanding() {
           <a href="#top" className="flex min-w-0 items-center gap-2 font-display text-base font-extrabold sm:text-lg">
             <Logo />
           </a>
-          <nav aria-label="Navigasi halaman" className="hidden items-center gap-6 font-display text-sm font-bold text-inkl/70 md:flex">
+          <nav aria-label="Navigasi halaman" className="tunggu-font hidden items-center gap-6 font-display text-sm font-bold text-inkl/70 md:flex">
             <a href="#koleksi" className="transition hover:text-oranyel-ink">Etalase</a>
             <a href="#proses" className="transition hover:text-oranyel-ink">Proses</a>
             <a href="#tanya" className="transition hover:text-oranyel-ink">FAQ</a>
           </nav>
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="shrink-0 border-[3px] border-inkl bg-inkl px-3 py-2 font-display text-sm font-bold text-kreml transition hover:bg-oranyel-ink sm:px-5">
+          {/* Lebar pasti = teks Syne 113,77 px + padding + garis tepi (diukur): tombol tidak melebar saat font pengganti ditukar (CLS) */}
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="w-[143.77px] shrink-0 border-[3px] border-inkl bg-inkl px-3 py-2 font-display text-sm font-bold text-kreml transition hover:bg-oranyel-ink sm:w-[159.77px] sm:px-5">
             Pesan Landing
           </a>
         </div>
@@ -112,7 +113,7 @@ export default function PortalLanding() {
 
         {/* Marquee tujuan: dekorasi */}
         <div className="marquee overflow-hidden border-y-[3px] border-inkl bg-inkl py-2.5 text-kreml sm:py-3" aria-hidden="true">
-          <div className="flex w-max animate-marquee-x">
+          <div className="tunggu-font flex w-max animate-marquee-x">
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0 items-center">
                 {['KLIK', 'LEADS', 'SALES', 'DAFTAR', 'BOOKING', 'SUBSCRIBE', 'KONVERSI'].map((k) => (
