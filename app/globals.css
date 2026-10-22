@@ -1,7 +1,37 @@
 @import "tailwindcss";
 
+/* Pengganti Syne selama font web belum tiba, bermetrik cocok supaya teks tidak bergeser saat Syne masuk (CLS).
+   size-adjust = lebar Syne / lebar font lokal, diukur 22 Okt 2026 pada teks layar pertama (700: menu, marquee, tombol;
+   800: judul hero); ascent/descent = metrik Syne (0,925 / 0,275 em) dibagi size-adjust. Helvetica dan Liberation Sans
+   berlebar sama dengan Arial. unicode-range = cakupan Syne latin, jadi glyph yang tak ada di Syne (mis. →) tetap
+   memakai 'Syne Asal' seperti sebelumnya. 'Syne Pengganti Rapat' khusus kata sorotan judul ("menjual."). */
+@font-face {
+  font-family: 'Syne Pengganti'; font-weight: 100 700;
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Helvetica Bold'), local('Helvetica-Bold'), local('Liberation Sans Bold'), local('LiberationSans-Bold');
+  size-adjust: 114%; ascent-override: 81.13%; descent-override: 24.13%; line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Syne Pengganti'; font-weight: 701 1000;
+  src: local('Arial Black'), local('Arial-Black');
+  size-adjust: 153%; ascent-override: 60.45%; descent-override: 17.98%; line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Syne Pengganti Rapat'; font-weight: 701 1000;
+  src: local('Arial Black'), local('Arial-Black');
+  size-adjust: 145.4%; ascent-override: 63.61%; descent-override: 18.92%; line-gap-override: 0%;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Sama persis dengan pengganti bawaan next/font sebelumnya: dipakai glyph di luar cakupan Syne. */
+@font-face {
+  font-family: 'Syne Asal';
+  src: local('Arial');
+  size-adjust: 98.47%; ascent-override: 93.93%; descent-override: 27.93%; line-gap-override: 0%;
+}
+
 @theme {
-  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-display: var(--font-syne), 'Syne Pengganti', 'Syne Asal', system-ui, sans-serif;
   /* Teks badan: tumpukan font sistem gaya Apple, sama dengan situs utama PintuWeb (tanpa unduhan font) */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
@@ -56,10 +86,7 @@ main:focus { outline: none; }
 @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .animate-marquee-x { animation: marquee-x 30s linear infinite; }
 .marquee:hover .animate-marquee-x { animation-play-state: paused; }
-/* Ditahan sampai Syne termuat (html[data-font], diisi skrip kecil di layout; paling lambat 3 dtk): isi marquee (panah →
-   memakai font sistem, jadi tetap tampak dan ikut bergeser saat font berganti) dan navigasi kepala (letaknya di tengah
-   bergantung pada lebar teks Syne). Teks Syne-nya sendiri memang belum tergambar selama itu (font-display: block). */
-html:not([data-font]) .tunggu-font { visibility: hidden; }
+.pengganti-rapat { font-family: var(--font-syne), 'Syne Pengganti Rapat', 'Syne Asal', system-ui, sans-serif; }
 
 /* Masuk halus untuk elemen pendukung hero (judul tetap langsung tampil demi LCP) */
 @keyframes naik { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }

@@ -2,10 +2,9 @@ import './globals.css';
 import { Syne } from 'next/font/google';
 import { templates, slugOf } from './components/templates-data';
 
-// display 'block': judul (Syne) baru tergambar setelah fontnya tiba, jadi teks rata tengah tidak bergeser saat font
-// pengganti ditukar (CLS). Marquee & navigasi kepala ditahan lewat data-font (SKRIP_FONT, .tunggu-font di globals.css).
-const syne = Syne({ subsets: ['latin'], variable: '--font-syne', weight: ['600', '700', '800'], display: 'block' });
-const SKRIP_FONT = `(function(){var d=document.documentElement,ok=function(){d.dataset.font='siap'};setTimeout(ok,3000);try{document.fonts.load("700 1em ${syne.style.fontFamily.split(',')[0]}").then(ok,ok)}catch(e){ok()}})()`;
+// Pengganti Syne diatur sendiri di globals.css (@font-face 'Syne Pengganti'): metriknya diukur per ketebalan supaya
+// pergantian font tidak menggeser halaman (CLS). Pengganti bawaan next/font terlalu sempit untuk Syne tebal.
+const syne = Syne({ subsets: ['latin'], variable: '--font-syne', weight: ['600', '700', '800'], adjustFontFallback: false });
 
 // Merek di hasil pencarian & pratinjau tautan = PintuWeb. Jumlah demo dihitung dari data, bukan ditulis tangan.
 const URL_PORTAL = 'https://www.pintuweb.id/landing-page';
@@ -64,10 +63,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={syne.variable} suppressHydrationWarning>
+    <html lang="id" className={syne.variable}>
       <body className="antialiased">
-        <script dangerouslySetInnerHTML={{ __html: SKRIP_FONT }} />
-        <noscript><style>{'.tunggu-font { visibility: visible !important; }'}</style></noscript>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(__jsonld) }} />
       </body>
