@@ -9,7 +9,7 @@ const syne = Syne({ subsets: ['latin'], variable: '--font-syne', weight: ['600',
 // Merek di hasil pencarian & pratinjau tautan = PintuWeb. Jumlah demo dihitung dari data, bukan ditulis tangan.
 const URL_PORTAL = 'https://www.pintuweb.id/landing-page';
 const TITLE = `Contoh Landing Page: ${templates.length} Demo Siap Coba | PintuWeb`;
-const DESCRIPTION = `${templates.length} contoh landing page siap coba: click-through, lead gen, sales, webinar, hingga profil usaha. Pilih satu, PintuWeb sesuaikan untuk bisnismu.`;
+const DESCRIPTION = `${templates.length} contoh landing page siap coba: jualan, kumpulkan kontak, acara online, hingga profil usaha. Pilih satu, PintuWeb sesuaikan.`;
 
 // CollectionPage + daftar demonya (ItemList) + jejak. Data dari templates-data, jadi ikut bertambah sendiri.
 const __jsonld = {

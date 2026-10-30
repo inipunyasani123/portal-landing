@@ -5,35 +5,35 @@ import BilahLengket from './components/BilahLengket';
 import { templates, KATEGORI, slugOf, potretOf } from './components/templates-data';
 import { LANJUT, ARTIKEL, GALERI_LAIN, PINTUWEB, PAKET, WA_DISPLAY, wa } from './components/pintuweb';
 
-const WA = wa('Halo PintuWeb, saya tertarik template landing page. Boleh minta info?');
+const WA = wa('Halo PintuWeb, saya tertarik landing page. Boleh minta info?');
 const N = templates.length;
 
 const PRINSIP = [
-  { icon: Target, title: 'Satu tujuan', desc: 'Tanpa distraksi — setiap elemen mengarah ke satu aksi utama.' },
-  { icon: MousePointerClick, title: 'CTA yang berani', desc: 'Tombol jelas, copywriting tajam, posisi tepat di momen yakin.' },
-  { icon: TrendingUp, title: 'Bukti yang bisa dicek', desc: 'Angka, demo yang bisa dicoba, dan studi kasus — bukan testimoni karangan atau logo pinjaman.' },
+  { icon: Target, title: 'Satu tujuan', desc: 'Satu halaman, satu ajakan. Tidak ada yang mengganggu.' },
+  { icon: MousePointerClick, title: 'Ajakan yang jelas', desc: 'Tombolnya mudah dilihat, kalimatnya singkat.' },
+  { icon: TrendingUp, title: 'Bukti yang nyata', desc: 'Demo yang bisa dicoba, bukan testimoni karangan.' },
 ];
 
 const PROSES = [
-  { icon: FileText, no: '01', title: 'Kirim Brief', desc: 'Produk apa, target siapa, aksi apa yang kamu mau — cukup lewat WhatsApp.' },
-  { icon: Paintbrush, no: '02', title: 'Kami Racik', desc: 'Copywriting + desain dari template pilihanmu, disesuaikan brand-mu.' },
-  { icon: Rocket, no: '03', title: 'Tayang & Menjual', desc: `Halaman live dalam ${PAKET.waktu}, siap menampung klik dan konversi.` },
+  { icon: FileText, no: '01', title: 'Ceritakan usahamu', desc: 'Kirim lewat WhatsApp: jual apa, untuk siapa.' },
+  { icon: Paintbrush, no: '02', title: 'Kami buatkan', desc: 'Desain dan tulisan disesuaikan dengan usahamu.' },
+  { icon: Rocket, no: '03', title: 'Tayang', desc: `Halamanmu bisa dibuka dalam ${PAKET.waktu}.` },
 ];
 
 // Angka dari PAKET (PintuWeb packages.ts & PERF_TARGET); sisanya fitur paket, bukan klaim hasil.
 const JAMINAN = [
-  { icon: Gauge, v: PAKET.targetSkor, l: 'Target skor PageSpeed' },
-  { icon: Search, v: 'SEO', l: 'SEO dasar terpasang' },
-  { icon: Smartphone, v: 'Ponsel', l: 'Dirancang mobile-friendly' },
+  { icon: Gauge, v: PAKET.targetSkor, l: 'Target skor kecepatan' },
+  { icon: Search, v: 'Google', l: 'Mudah ditemukan' },
+  { icon: Smartphone, v: 'HP', l: 'Enak dibuka di HP' },
   { icon: TrendingUp, v: PAKET.waktuPendek, l: 'Kerja sampai tayang' },
 ];
 
 const TANYA = [
-  { q: 'Landing page-ku untuk produk yang beda — bisa disesuaikan?', a: 'Justru itu intinya. Template adalah kerangka teruji; teks, gambar, warna, dan alur CTA kami sesuaikan sepenuhnya dengan produk dan audiensmu.' },
-  { q: 'Apakah termasuk copywriting?', a: 'Ya. Kami bantu menulis headline dan copy yang menjual berdasarkan brief-mu — kamu tinggal review dan setujui.' },
-  { q: 'Bagaimana dengan formulir dan integrasi WhatsApp?', a: 'Semua CTA bisa diarahkan ke WhatsApp, formulir, e-commerce, atau link pembayaran. Kamu tentukan aksinya, kami pasang jalurnya.' },
-  { q: 'Apakah halaman bisa dipakai untuk iklan (Meta/Google Ads)?', a: 'Sangat bisa — halaman ringan dan cepat justru menurunkan biaya iklan. Pixel/tag analytics juga bisa kami pasangkan.' },
-  { q: 'Berapa biayanya?', a: `Paket Landing Page PintuWeb ${PAKET.mulai}–${PAKET.sampai} untuk satu halaman (desain, copy, tayang), selesai ${PAKET.waktu}. Konsultasi dulu gratis; harga final menyesuaikan kebutuhan.` },
+  { q: 'Bisa disesuaikan untuk produkku?', a: 'Bisa. Teks, gambar, dan warna kami sesuaikan dengan usahamu.' },
+  { q: 'Sudah termasuk tulisan isinya?', a: 'Ya. Kami bantu menulis judul dan isi halaman. Kamu tinggal periksa.' },
+  { q: 'Bisa diarahkan ke WhatsApp?', a: 'Bisa. Tombolnya bisa menuju WhatsApp, formulir, toko online, atau link pembayaran.' },
+  { q: 'Bisa dipakai untuk iklan?', a: 'Bisa. Halamannya ringan dan cepat dibuka, cocok untuk iklan Meta atau Google.' },
+  { q: 'Berapa biayanya?', a: `Paket Landing Page ${PAKET.mulai}–${PAKET.sampai} untuk satu halaman, selesai ${PAKET.waktu}. Konsultasi awal gratis.` },
 ];
 
 const FAQ_LD = {
@@ -93,14 +93,14 @@ export default function PortalLanding() {
         <section id="hero" className="px-4 pb-8 pt-6 text-center sm:px-6 sm:pb-12 sm:pt-16">
           <div className="mx-auto max-w-4xl">
             <span className="naik hidden border-[3px] border-inkl bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wide shadow-[3px_3px_0_var(--color-inkl)] sm:inline-block">
-              {N} template · {KATEGORI.length} tujuan konversi
+              {N} contoh · {KATEGORI.length} tujuan
             </span>
             <h1 className="font-display text-[2rem] font-extrabold leading-[1.05] sm:mt-7 sm:text-7xl sm:leading-[1.02]">
               {/* Pemenggalan baris pasti (ponsel 3 baris, layar lebar 2) supaya pergantian font tidak menggeser halaman */}
               Halaman yang<br /><span className="pengganti-rapat bg-oranyel px-3 text-white">menjual.</span>
             </h1>
             <p className="mx-auto mt-5 hidden max-w-xl text-base text-mutedl sm:mt-6 sm:block sm:text-lg">
-              Click-through, lead gen, sales, webinar, sampai company profile — tiap halaman dirancang untuk satu hal: membuat pengunjung bertindak.
+              Dari jualan sampai profil usaha. Pilih contoh yang cocok, kami sesuaikan untukmu.
             </p>
             <div className="naik naik-2 mt-4 flex flex-col items-center gap-3 sm:mt-9 sm:gap-4">
               <a href="#koleksi" className="inline-flex items-center gap-2 border-[3px] border-inkl bg-inkl px-8 py-3 font-display text-sm font-bold text-kreml shadow-[5px_5px_0_var(--color-oranyel)] sm:py-4 transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-oranyel)]">
@@ -136,7 +136,7 @@ export default function PortalLanding() {
           <div className="flex w-max animate-marquee-x">
             {[0, 1].map((dup) => (
               <div key={dup} className="flex shrink-0 items-center">
-                {['KLIK', 'LEADS', 'SALES', 'DAFTAR', 'BOOKING', 'SUBSCRIBE', 'KONVERSI'].map((k) => (
+                {['KLIK', 'KONTAK', 'JUALAN', 'DAFTAR', 'BOOKING', 'LANGGANAN', 'PESAN'].map((k) => (
                   <span key={k} className="flex items-center gap-6 px-6 font-display text-lg font-bold sm:text-xl">
                     {k} <span className="text-oranyel">→</span>
                   </span>
@@ -163,7 +163,7 @@ export default function PortalLanding() {
         {/* Prinsip */}
         <section aria-labelledby="judul-prinsip" className="border-t-[3px] border-inkl bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <h2 id="judul-prinsip" className="font-display text-3xl font-extrabold sm:text-center md:text-4xl">Anatomi halaman yang menjual</h2>
+            <h2 id="judul-prinsip" className="font-display text-3xl font-extrabold sm:text-center md:text-4xl">Ciri halaman yang menjual</h2>
             <ul className="mt-8 grid gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3">
               {PRINSIP.map((p) => (
                 <li key={p.title} className="flex items-start gap-4 border-[3px] border-inkl bg-kreml p-4 shadow-[4px_4px_0_var(--color-inkl)] sm:block sm:p-7 sm:shadow-[5px_5px_0_var(--color-inkl)]">
@@ -183,7 +183,7 @@ export default function PortalLanding() {
           <div className="mx-auto max-w-7xl">
             <div className="sm:text-center">
               <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-oranyel-ink">Proses</p>
-              <h2 id="judul-proses" className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Dari brief ke <span className="bg-oranyel px-2 text-white">tayang</span></h2>
+              <h2 id="judul-proses" className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Dari cerita ke <span className="bg-oranyel px-2 text-white">tayang</span></h2>
             </div>
             <ol className="mt-8 grid gap-3 sm:mt-12 sm:gap-6 md:grid-cols-3">
               {PROSES.map((p) => (
@@ -218,7 +218,7 @@ export default function PortalLanding() {
           <div className="mx-auto max-w-3xl">
             <div className="sm:text-center">
               <p className="font-display text-xs font-bold uppercase tracking-[0.25em] text-oranyel-ink">FAQ</p>
-              <h2 id="judul-tanya" className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Sebelum kamu <span className="bg-oranyel px-2 text-white">klik pesan</span></h2>
+              <h2 id="judul-tanya" className="mt-2 font-display text-3xl font-extrabold md:text-4xl">Pertanyaan <span className="bg-oranyel px-2 text-white">umum</span></h2>
             </div>
             <div className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
               {TANYA.map((t, i) => (
@@ -242,7 +242,7 @@ export default function PortalLanding() {
         <section className="border-t-[3px] border-inkl bg-inkl px-4 py-16 text-center text-kreml sm:px-6">
           <div className="mx-auto max-w-xl">
             <h2 className="font-display text-3xl font-extrabold leading-tight md:text-5xl">Bisnismu butuh <span className="text-oranyel">halaman yang bekerja</span>.</h2>
-            <p className="mt-4 text-kreml/75">Pilih template, kirim materi, dan halamanmu siap menjual dalam hitungan hari.</p>
+            <p className="mt-4 text-kreml/75">Pilih contoh, kirim bahannya, halamanmu tayang dalam hitungan hari.</p>
             <a href={WA} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 bg-oranyel px-9 py-4 font-display text-sm font-bold text-inkl transition hover:scale-[1.03] active:scale-95">
               <MessageCircle size={16} aria-hidden="true" /> Chat WhatsApp
             </a>
@@ -254,12 +254,12 @@ export default function PortalLanding() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
           <div className="col-span-2 sm:col-span-1">
             <p className="flex items-center gap-2 font-display text-lg font-extrabold text-kreml"><Logo kecil /></p>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed">{N} landing page dengan satu tujuan: membuat pengunjungmu bertindak.</p>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed">{N} contoh landing page. Pilih satu, kami sesuaikan untukmu.</p>
           </div>
           <nav aria-labelledby="kaki-jelajahi" className="text-sm">
             <p id="kaki-jelajahi" className="font-display text-xs font-bold uppercase tracking-widest text-oranyel">Jelajahi</p>
             <ul className="mt-3 space-y-1">
-              <li><a href="#koleksi" className="inline-block py-1 transition hover:text-kreml">Etalase Template</a></li>
+              <li><a href="#koleksi" className="inline-block py-1 transition hover:text-kreml">Etalase Contoh</a></li>
               <li><a href="#proses" className="inline-block py-1 transition hover:text-kreml">Proses Pengerjaan</a></li>
               <li><a href="#tanya" className="inline-block py-1 transition hover:text-kreml">FAQ</a></li>
             </ul>
@@ -302,7 +302,7 @@ export default function PortalLanding() {
           </ul>
         </nav>
         <p className="mx-auto mt-8 max-w-7xl border-t border-kreml/10 pt-5 text-xs text-kreml/70 sm:text-center">
-          © {new Date().getFullYear()} PintuWeb · Galeri Landing Page — dibuat untuk konversi.
+          © {new Date().getFullYear()} PintuWeb · Galeri Landing Page
         </p>
       </footer>
       <BilahLengket waHref={WA} />

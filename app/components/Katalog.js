@@ -6,7 +6,7 @@ import { ArrowUpRight, MessageCircle, UtensilsCrossed, ShoppingBag, Briefcase, G
 import { templates, slugOf, KATEGORI, USAHA, usahaOf, potretOf, potretSrcSet } from './templates-data';
 import { wa, waMirip, PAKET } from './pintuweb';
 
-const BRIEF = wa('Halo PintuWeb, saya mau landing page untuk tujuan yang belum ada di etalase. Ini brief singkatnya:');
+const BRIEF = wa('Halo PintuWeb, saya mau landing page untuk tujuan yang belum ada di etalase. Ini ceritanya:');
 const IKON_USAHA = { Kuliner: UtensilsCrossed, 'Toko & Produk': ShoppingBag, 'Jasa & Layanan': Briefcase, 'Edukasi & Acara': GraduationCap, Teknologi: Cpu };
 const SLUGS = new Set(templates.map(slugOf));
 
@@ -139,11 +139,11 @@ export default function Katalog({ kepala }) {
         <li className="sewa relative flex flex-col justify-between gap-4 border-[3px] border-dashed border-inkl p-5 md:min-h-[18rem] md:p-7">
           <div>
             <p className="inline-block border-2 border-inkl bg-kreml px-2 py-0.5 font-display text-[11px] font-bold uppercase tracking-widest">Papan disewakan</p>
-            <h3 className="mt-3 font-display text-xl font-extrabold leading-tight sm:text-2xl">Tujuanmu belum ada di etalase?</h3>
-            <p className="mt-2 text-sm leading-relaxed text-inkl/80">Kirim brief singkat: produk, target, dan satu aksi yang kamu mau. Kami racik halamannya dari nol.</p>
+            <h3 className="mt-3 font-display text-xl font-extrabold leading-tight sm:text-2xl">Tujuanmu belum ada?</h3>
+            <p className="mt-2 text-sm leading-relaxed text-inkl/80">Ceritakan singkat usahamu dan maunya apa. Kami buatkan dari nol.</p>
           </div>
           <a href={BRIEF} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 self-start border-[3px] border-inkl bg-inkl px-5 font-display text-sm font-bold text-kreml shadow-[4px_4px_0_var(--color-oranyel)] transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-oranyel)]">
-            <MessageCircle size={16} aria-hidden="true" /> Kirim brief via WhatsApp
+            <MessageCircle size={16} aria-hidden="true" /> Cerita via WhatsApp
           </a>
         </li>
       </ul>
