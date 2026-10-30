@@ -111,3 +111,10 @@ main:focus { outline: none; }
   .animate-marquee-x { animation: none !important; }
   .group:hover .papan { transform: none; }
 }
+
+/* Tautan langsung #slug: kartu yang dituju disorot ±2 detik dengan bingkai oranye dan stiker (tanpa kedip) */
+.stiker { display: none; position: absolute; z-index: 5; top: -0.75rem; inset-inline-start: 0.5rem; transform: rotate(-3deg); border: 2px solid var(--color-inkl); background: var(--color-oranyel); color: var(--color-inkl); padding: 0.125rem 0.5rem; font-family: var(--font-display); font-size: 0.6875rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; box-shadow: 2px 2px 0 var(--color-inkl); }
+.kartu[data-sorot="true"] .stiker { display: block; }
+.kartu[data-sorot="true"] .papan { outline: 4px solid var(--color-oranyel-ink); outline-offset: 5px; box-shadow: 8px 8px 0 var(--color-oranyel); }
+/* Ruang untuk bilah lengket ponsel */
+@media (max-width: 767px) { body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); } }

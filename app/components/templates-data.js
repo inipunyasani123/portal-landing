@@ -24,5 +24,25 @@ export const templates = [
 /** "https://landing-nimbus.pintuweb.id" -> "nimbus" (sama dengan slug demo di PintuWeb/app/lib/demos.ts). */
 export const slugOf = (t) => new URL(t.url).hostname.split('.')[0].replace(/^landing-/, '');
 
+/**
+ * Jenis usaha/pengguna demo, untuk saringan "untuk usaha apa". Setiap slug muncul tepat sekali.
+ * Dicocokkan dengan isi demo yang sebenarnya (28–30 Okt 2026), bukan dengan tujuan konversinya.
+ */
+export const USAHA = [
+  { nama: 'Kuliner', slug: ['cissycoffee', 'tastycorner', 'rasanusantara', 'citarasa'] },
+  { nama: 'Toko & Produk', slug: ['luxeelectro', 'modewear', 'woodora'] },
+  { nama: 'Jasa & Layanan', slug: ['bribu', 'sribu', 'skywings'] },
+  { nama: 'Edukasi & Acara', slug: ['eduplay', 'zychrome', 'lumicast', 'nexttalks', 'elevinar'] },
+  { nama: 'Teknologi', slug: ['nimbus', 'sanzyhub'] },
+];
+export const usahaOf = (t) => USAHA.find((u) => u.slug.includes(slugOf(t)))?.nama;
+
+/** Potret ponsel (390x844 @2x, bagian atas halaman): <slug>-m.webp + varian -m-320/-480/-640. */
+export const potretOf = (t) => t.image.replace(/\.webp$/, '-m.webp');
+export const potretSrcSet = (t) => {
+  const b = potretOf(t).replace(/\.webp$/, '');
+  return `${b}-320.webp 320w, ${b}-480.webp 480w, ${b}-640.webp 640w, ${b}.webp 780w`;
+};
+
 /** Tujuan konversi, urut seperti di saringan. */
 export const KATEGORI = ['Click-Through', 'Lead Gen', 'Sales', 'Webinar', 'Produk', 'Platform', 'Profil'];

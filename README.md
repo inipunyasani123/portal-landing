@@ -43,7 +43,7 @@ PortalLanding: 17 landing page dengan tujuan berbeda — click-through, lead gen
 - JavaScript
 - Framer Motion, Lucide (ikon)
 - Font: Syne, Inter (next/font)
-- Tangkapan layar tiap varian diambil dari demo live (22 Okt 2026), `public/images/landing/`; setelah mengganti gambar, buat ulang variannya dengan `node scripts/gambar-varian.mjs`
+- Tangkapan layar tiap varian diambil dari demo live (30 Okt 2026): desktop 1600x1000 (`<slug>.webp`) dan potret ponsel 390x844 @2x dipotong 780x1200 (`<slug>-m.webp`), di `public/images/landing/`. Pengambilan: `node scripts/potret.mjs <url> <out.png> --w 390 --h 844 --dpr 2`; setelah mengganti gambar, buat ulang variannya dengan `node scripts/gambar-varian.mjs`
 - SEO: metadata per halaman, Open Graph, JSON-LD, sitemap.xml, dan robots.txt
 
 ## Menjalankan secara lokal
@@ -58,3 +58,11 @@ Buka http://localhost:3000. Untuk build produksi: `npm run build` lalu `npm star
 ---
 
 Dibuat oleh [PintuWeb](https://www.pintuweb.id), jasa pembuatan website.
+
+## Tautan langsung per demo (`#slug`)
+
+Setiap kartu memakai `id` = slug demo. Membuka `https://www.pintuweb.id/landing-page#<slug>` menggulir ke kartu itu (saringan disetel ke "Semua" bila perlu) dan menyorotnya sekitar 2 detik.
+
+`nimbus`, `eduplay`, `cissycoffee`, `sanzyhub`, `tastycorner`, `rasanusantara`, `citarasa`, `skywings`, `bribu`, `luxeelectro`, `modewear`, `woodora`, `zychrome`, `lumicast`, `nexttalks`, `elevinar`, `sribu`
+
+Saringan "untuk usaha apa" (Kuliner, Toko & Produk, Jasa & Layanan, Edukasi & Acara, Teknologi) dipetakan per slug di `USAHA` (`app/components/templates-data.js`).

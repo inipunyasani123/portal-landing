@@ -1,7 +1,9 @@
-import { Megaphone, ArrowDown, ArrowUpRight, MessageCircle, MousePointerClick, Target, TrendingUp, FileText, Paintbrush, Rocket, ChevronDown, Gauge, Search, Smartphone } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, MessageCircle, MousePointerClick, Target, TrendingUp, FileText, Paintbrush, Rocket, ChevronDown, Gauge, Search, Smartphone } from 'lucide-react';
 import Katalog from './components/Katalog';
-import { templates, KATEGORI } from './components/templates-data';
-import { LANJUT, GALERI_LAIN, PINTUWEB, PAKET, WA_DISPLAY, wa } from './components/pintuweb';
+import GaleriMenu from './components/GaleriMenu';
+import BilahLengket from './components/BilahLengket';
+import { templates, KATEGORI, slugOf, potretOf } from './components/templates-data';
+import { LANJUT, ARTIKEL, GALERI_LAIN, PINTUWEB, PAKET, WA_DISPLAY, wa } from './components/pintuweb';
 
 const WA = wa('Halo PintuWeb, saya tertarik template landing page. Boleh minta info?');
 const N = templates.length;
@@ -43,9 +45,9 @@ const FAQ_LD = {
 function Logo({ kecil = false }) {
   return (
     <>
-      <span className={`grid shrink-0 place-items-center bg-oranyel text-white ${kecil ? 'h-8 w-8 border-2 border-kreml/30' : 'h-9 w-9 border-[3px] border-inkl shadow-[3px_3px_0_var(--color-inkl)]'}`}>
-        <Megaphone size={kecil ? 14 : 16} aria-hidden="true" />
-      </span>
+      {/* Logo pintu asli PintuWeb (367x512, tidak diubah). Di latar gelap diberi alas putih membulat seperti footer PintuWeb. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/landing-page/images/logo-pintuweb.png" alt="" width="367" height="512" className={`w-auto shrink-0 ${kecil ? 'h-8 rounded-lg bg-white p-1' : 'h-7'}`} />
       <span className="flex flex-col text-left leading-none">
         PintuWeb{' '}
         <span className={`mt-1 text-[10px] font-bold uppercase tracking-[0.18em] ${kecil ? 'text-oranyel' : 'text-oranyel-ink'}`}>Landing Page</span>
@@ -60,11 +62,14 @@ export default function PortalLanding() {
       <a href="#konten" className="lewati">Lewati ke konten</a>
       {/* Jejak: portal ini bagian dari PintuWeb */}
       <nav aria-label="Jejak" className="bg-inkl text-xs text-kreml">
-        <ol className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-1.5 sm:px-6 lg:px-8">
-          <li><a href={PINTUWEB} className="font-semibold underline-offset-4 hover:underline">PintuWeb</a></li>
-          <li aria-hidden="true" className="opacity-60">/</li>
-          <li aria-current="page">Landing Page</li>
-        </ol>
+        <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-1 sm:px-6 lg:px-8">
+          <ol className="flex items-center gap-2">
+            <li><a href={PINTUWEB} className="font-semibold underline-offset-4 hover:underline">PintuWeb</a></li>
+            <li aria-hidden="true" className="opacity-60">/</li>
+            <li aria-current="page">Landing Page</li>
+          </ol>
+          <GaleriMenu />
+        </div>
       </nav>
 
       <header className="sticky top-0 z-40 border-b-[3px] border-inkl bg-kreml/90 backdrop-blur-xl">
@@ -77,29 +82,28 @@ export default function PortalLanding() {
             <a href="#proses" className="transition hover:text-oranyel-ink">Proses</a>
             <a href="#tanya" className="transition hover:text-oranyel-ink">FAQ</a>
           </nav>
-          {/* Lebar pasti = teks Syne 113,77 px + padding + garis tepi (diukur), satu baris: tombol tidak berubah saat font pengganti ditukar (CLS) */}
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="w-[143.77px] shrink-0 whitespace-nowrap border-[3px] border-inkl bg-inkl px-3 py-2 font-display text-sm font-bold text-kreml transition hover:bg-oranyel-ink sm:w-[159.77px] sm:px-5">
-            Pesan Landing
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="shrink-0 whitespace-nowrap border-[3px] border-inkl bg-inkl px-3 py-2 font-display text-sm font-bold text-kreml transition hover:bg-oranyel-ink sm:px-5">
+            Pesan landing<span className="hidden min-[400px]:inline"> page</span>
           </a>
         </div>
       </header>
 
       <main id="konten" tabIndex={-1}>
         {/* Hero */}
-        <section className="px-4 pb-12 pt-10 text-center sm:px-6 sm:pt-16">
+        <section id="hero" className="px-4 pb-8 pt-6 text-center sm:px-6 sm:pb-12 sm:pt-16">
           <div className="mx-auto max-w-4xl">
-            <span className="naik inline-block border-[3px] border-inkl bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wide shadow-[3px_3px_0_var(--color-inkl)]">
+            <span className="naik hidden border-[3px] border-inkl bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-wide shadow-[3px_3px_0_var(--color-inkl)] sm:inline-block">
               {N} template · {KATEGORI.length} tujuan konversi
             </span>
-            <h1 className="mt-6 font-display text-[2.35rem] font-extrabold leading-[1.02] min-[360px]:text-[2.6rem] sm:mt-7 sm:text-7xl">
+            <h1 className="font-display text-[2rem] font-extrabold leading-[1.05] sm:mt-7 sm:text-7xl sm:leading-[1.02]">
               {/* Pemenggalan baris pasti (ponsel 3 baris, layar lebar 2) supaya pergantian font tidak menggeser halaman */}
-              Halaman<br className="sm:hidden" /> yang<br /><span className="pengganti-rapat bg-oranyel px-3 text-white">menjual.</span>
+              Halaman yang<br /><span className="pengganti-rapat bg-oranyel px-3 text-white">menjual.</span>
             </h1>
-            <p className="mx-auto mt-5 max-w-xl text-base text-mutedl sm:mt-6 sm:text-lg">
+            <p className="mx-auto mt-5 hidden max-w-xl text-base text-mutedl sm:mt-6 sm:block sm:text-lg">
               Click-through, lead gen, sales, webinar, sampai company profile — tiap halaman dirancang untuk satu hal: membuat pengunjung bertindak.
             </p>
-            <div className="naik naik-2 mt-8 flex flex-col items-center gap-4 sm:mt-9">
-              <a href="#koleksi" className="inline-flex items-center gap-2 border-[3px] border-inkl bg-inkl px-8 py-4 font-display text-sm font-bold text-kreml shadow-[5px_5px_0_var(--color-oranyel)] transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-oranyel)]">
+            <div className="naik naik-2 mt-4 flex flex-col items-center gap-3 sm:mt-9 sm:gap-4">
+              <a href="#koleksi" className="inline-flex items-center gap-2 border-[3px] border-inkl bg-inkl px-8 py-3 font-display text-sm font-bold text-kreml shadow-[5px_5px_0_var(--color-oranyel)] sm:py-4 transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[2px_2px_0_var(--color-oranyel)]">
                 Lihat Etalase <ArrowDown size={16} aria-hidden="true" />
               </a>
               {/* Ringkasan paket: angka dari PAKET (PintuWeb packages.ts) */}
@@ -109,6 +113,22 @@ export default function PortalLanding() {
               </p>
             </div>
           </div>
+          {/* Ponsel: strip demo yang bisa digeser, tepat di bawah tombol utama; menaut ke #slug kartunya */}
+          <nav aria-label="Pintasan ke demo" className="mt-5 sm:hidden">
+            <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 pt-1 [scrollbar-width:none]">
+              {templates.map((t) => (
+                <li key={t.name} className="w-[7.25rem] shrink-0 snap-start">
+                  <a href={`#${slugOf(t)}`} className="block text-left">
+                    <span className="papan block aspect-[3/4] overflow-hidden !shadow-[3px_3px_0_var(--color-inkl)]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={potretOf(t).replace(/\.webp$/, '-320.webp')} alt="" width="320" height="493" loading="lazy" className="h-full w-full object-cover object-top" />
+                    </span>
+                    <span className="mt-1.5 block truncate font-display text-xs font-bold">{t.name.replace(' (konsep redesain)', '')}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </section>
 
         {/* Marquee tujuan: dekorasi */}
@@ -230,7 +250,7 @@ export default function PortalLanding() {
         </section>
       </main>
 
-      <footer className="border-t border-kreml/10 bg-inkl px-4 pb-6 pt-10 text-kreml/70 sm:px-6 lg:px-8">
+      <footer id="kaki" className="border-t border-kreml/10 bg-inkl px-4 pb-6 pt-10 text-kreml/70 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3">
           <div className="col-span-2 sm:col-span-1">
             <p className="flex items-center gap-2 font-display text-lg font-extrabold text-kreml"><Logo kecil /></p>
@@ -264,6 +284,14 @@ export default function PortalLanding() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-xs font-bold uppercase tracking-widest text-kreml/70">Baca juga</p>
+          <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
+            {ARTIKEL.map((a) => (
+              <li key={a.href}>
+                <a href={a.href} className="inline-block py-1 underline decoration-kreml/25 underline-offset-4 transition hover:text-kreml hover:decoration-oranyel">{a.label}</a>
+              </li>
+            ))}
+          </ul>
           <p className="mt-6 text-xs font-bold uppercase tracking-widest text-kreml/70">Galeri lain</p>
           <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1">
             {GALERI_LAIN.map((g) => (
@@ -277,6 +305,7 @@ export default function PortalLanding() {
           © {new Date().getFullYear()} PintuWeb · Galeri Landing Page — dibuat untuk konversi.
         </p>
       </footer>
+      <BilahLengket waHref={WA} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
     </div>
   );

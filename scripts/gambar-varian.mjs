@@ -38,8 +38,10 @@ for (const f of berkas.sort()) {
   const { width, height } = await sharp(src).metadata();
   for (const w of VARIAN) {
     // Loader selalu meminta semua lebar di VARIAN, jadi tiap varian harus ada walau gambar aslinya lebih sempit.
+    // Gambar potret ponsel (<nama>-m.webp) hanya dipakai lewat srcset: lebar di atas aslinya dilewati.
+    if (w > width && /-m\.webp$/.test(f)) continue;
     if (w > width) console.warn(`  peringatan: ${f} hanya ${width}px, varian ${w} tidak diperbesar`);
     await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: KUALITAS }).toFile(path.join(dir, f.replace(/\.[^.]+$/, `-${w}.webp`)));
   }
-  console.log(`${FOLDER}/${f} ${width}x${height} → ${VARIAN.join(', ')}`);
+  console.log(`${FOLDER}/${f} ${width}x${height} → ${VARIAN.filter((w) => w <= width || !/-m\.webp$/.test(f)).join(', ')}`);
 }

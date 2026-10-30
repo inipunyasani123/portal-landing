@@ -20,22 +20,34 @@ export const PAKET = {
   targetSkor: '90+',
 };
 
-/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). */
+/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). Urutan dan label seragam di 11 portal. */
 export const GALERI = [
   { path: 'landing-page', label: 'Landing Page' },
-  { path: 'link-in-bio', label: 'Link in Bio' },
-  { path: 'kontes-desain', label: 'Kontes Desain' },
-  { path: 'undangan-digital', label: 'Undangan Digital' },
-  { path: 'website-portofolio', label: 'Website Portofolio' },
-  { path: 'website-reservasi', label: 'Website Reservasi' },
-  { path: 'website-properti', label: 'Website Properti' },
-  { path: 'aplikasi-to-do', label: 'Aplikasi To-Do' },
   { path: 'toko-online', label: 'Toko Online' },
-  { path: 'menu-digital', label: 'Menu Digital' },
   { path: 'aplikasi-mobile', label: 'Aplikasi Mobile' },
+  { path: 'menu-digital', label: 'Menu Digital' },
+  { path: 'link-in-bio', label: 'Link in Bio' },
+  { path: 'kontes-desain', label: 'Konsep Desain' },
+  { path: 'undangan-digital', label: 'Undangan Digital' },
+  { path: 'website-portofolio', label: 'Portofolio Pribadi' },
+  { path: 'website-reservasi', label: 'Reservasi & Booking' },
+  { path: 'website-properti', label: 'Properti' },
+  { path: 'aplikasi-to-do', label: 'To-Do & Produktivitas' },
 ];
 
 export const GALERI_LAIN = GALERI.filter((g) => g.path !== 'landing-page');
+
+/** Jenis untuk pesan WhatsApp portal ini. */
+export const JENIS = 'landing page';
+
+/** Pesan WhatsApp untuk satu demo: "pesan yang mirip". */
+export const waMirip = (nama, url) => wa(`Halo PintuWeb, saya tertarik ${JENIS} seperti contoh ${nama} (${url}). Boleh minta info?`);
+
+/** Artikel PintuWeb yang relevan, ditampilkan di bawah "Baca juga". */
+export const ARTIKEL = [
+  { href: `${PINTUWEB}/artikel/jasa-pembuatan-website-murah`, label: 'Jasa pembuatan website murah: apa saja yang kamu dapat' },
+  { href: `${PINTUWEB}/artikel/landing-page-vs-company-profile`, label: 'Landing page atau company profile: mana yang kamu butuhkan' },
+];
 
 /** Paket harga (lib/packages.ts), halaman layanan, dan galeri demo PintuWeb untuk kategori ini. */
 export const LANJUT = [
