@@ -9,7 +9,7 @@ export const templates = [
   { name: 'Tasty Corner', kategori: 'Kumpulkan kontak', terjual: 1, description: 'Halaman untuk pebisnis kuliner. Coba hitung modal satu menu.', halaman: 4, sorot: 'Hitung modal makanan', image: '/landing-page/images/landing/tastycorner.webp', url: 'https://landing-tastycorner.pintuweb.id' },
   { name: 'Rasa Nusantara', kategori: 'Kumpulkan kontak', terjual: 1, description: 'Kartu resep untuk dapur restoran. Coba ubah jumlah porsinya.', halaman: 3, sorot: 'Penskala porsi 1–200', image: '/landing-page/images/landing/rasanusantara.webp', url: 'https://landing-rasanusantara.pintuweb.id' },
   { name: 'CitaRasa Digital', kategori: 'Kumpulkan kontak', terjual: 2, description: 'Jasa memindahkan rumah makan ke ponsel pelanggan. Lihat tiga contoh hasil.', halaman: 3, sorot: 'Tiga contoh hasil', image: '/landing-page/images/landing/citarasa.webp', url: 'https://landing-citarasa.pintuweb.id' },
-  { name: 'SkyWings', kategori: 'Produk', terjual: 0, description: 'Maskapai antarkota. Coba cari tiket dan jadwal berangkat.', halaman: 7, sorot: 'Cari boarding pass', image: '/landing-page/images/landing/skywings.webp', url: 'https://landing-skywings.pintuweb.id' },
+  { name: 'SkyWings', kategori: 'Layanan online', terjual: 0, description: 'Maskapai antarkota. Coba cari tiket dan jadwal berangkat.', halaman: 7, sorot: 'Cari boarding pass', image: '/landing-page/images/landing/skywings.webp', url: 'https://landing-skywings.pintuweb.id' },
   { name: 'Bribu', kategori: 'Pasar online', terjual: 3, description: 'Sayembara desain online. Tiga desainer kirim sketsa, klien pilih satu.', halaman: 4, sorot: 'Lihat kartu permintaan desain', image: '/landing-page/images/landing/bribu.webp', url: 'https://landing-bribu.pintuweb.id' },
   { name: 'LuxeElectro', kategori: 'Jualan', terjual: 3, description: 'Toko perangkat audio. Coba bandingkan suara dua produk.', halaman: 3, sorot: 'Bandingkan suara', image: '/landing-page/images/landing/luxeelectro.webp', url: 'https://landing-luxeelectro.pintuweb.id' },
   { name: 'Modewear', kategori: 'Jualan', terjual: 1, description: 'Toko baju kerja yang dijahit setelah dipesan. Coba cari ukuranmu.', halaman: 4, sorot: 'Hitung mundur & cari ukuran', image: '/landing-page/images/landing/modewear.webp', url: 'https://landing-modewear.pintuweb.id' },
@@ -45,4 +45,4 @@ export const potretSrcSet = (t) => {
 };
 
 /** Tujuan halaman, urut seperti di saringan. */
-export const KATEGORI = ['Jualan', 'Kumpulkan kontak', 'Acara online', 'Layanan online', 'Produk', 'Pasar online', 'Profil usaha'];
+export const KATEGORI = ['Jualan', 'Kumpulkan kontak', 'Acara online', 'Layanan online', 'Pasar online', 'Profil usaha'];
