@@ -25,7 +25,7 @@ export const PAKET = {
   targetSkor: HARGA.targetSkor,
 };
 
-/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). Urutan dan label seragam di 11 portal. */
+/** Galeri yang tayang di www.pintuweb.id/<path> (lihat lib/portals.ts di PintuWeb). Urutan dan label seragam di 12 portal. */
 export const GALERI = [
   { path: 'landing-page', label: 'Landing Page' },
   { path: 'website-company-profile', label: 'Company Profile' },

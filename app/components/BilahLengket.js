@@ -28,13 +28,15 @@ export default function BilahLengket({ waHref }) {
 
   return (
     <div
+      role="region"
+      aria-label="Aksi cepat"
       className={`fixed inset-x-0 bottom-0 z-40 border-t-[3px] border-inkl bg-kreml px-3 pt-2.5 transition-transform duration-300 md:hidden ${tampil ? 'translate-y-0' : 'pointer-events-none translate-y-full'}`}
       style={{ paddingBottom: 'calc(0.625rem + env(safe-area-inset-bottom))' }}
       inert={!tampil}
     >
       <div className="mx-auto flex max-w-md gap-2.5">
-        <a href="#koleksi" className="inline-flex min-h-11 shrink-0 items-center justify-center whitespace-nowrap border-[3px] border-inkl bg-white px-4 font-display text-sm font-bold">Lihat demo</a>
-        <a href={waHref} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 whitespace-nowrap border-[3px] border-inkl bg-oranyel px-2 font-display text-[13px] font-bold text-inkl shadow-[3px_3px_0_var(--color-inkl)]">
+        <a href="#koleksi" className="inline-flex min-h-11 shrink-0 items-center justify-center whitespace-nowrap border-[3px] border-inkl bg-white px-3 font-display text-sm font-bold min-[360px]:px-4">Lihat demo</a>
+        <a href={waHref} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 min-w-0 flex-1 items-center justify-center gap-1.5 border-[3px] border-inkl bg-oranyel px-2 text-center font-display text-[13px] leading-tight font-bold text-inkl shadow-[3px_3px_0_var(--color-inkl)]">
           <MessageCircle size={16} aria-hidden="true" /> Pesan via WhatsApp
         </a>
       </div>

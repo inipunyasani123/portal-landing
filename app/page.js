@@ -83,7 +83,7 @@ export default function PortalLanding() {
             <a href="#tanya" className="transition hover:text-oranyel-ink">FAQ</a>
           </nav>
           <a href={WA} target="_blank" rel="noopener noreferrer" className="shrink-0 whitespace-nowrap border-[3px] border-inkl bg-inkl px-3 py-2 font-display text-sm font-bold text-kreml transition hover:bg-oranyel-ink sm:px-5">
-            Pesan landing<span className="hidden min-[400px]:inline"> page</span>
+            Pesan<span className="max-[359px]:sr-only"> landing</span><span className="hidden min-[400px]:inline"> page</span>
           </a>
         </div>
       </header>
@@ -199,9 +199,9 @@ export default function PortalLanding() {
             </ol>
 
             {/* Jaminan strip */}
-            <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 border-[3px] border-inkl bg-inkl p-5 text-kreml sm:mt-10 sm:grid-cols-4 sm:p-6">
+            <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-5 border-[3px] border-inkl bg-inkl p-5 text-kreml sm:mt-10 sm:p-6 lg:grid-cols-4">
               {JAMINAN.map((j) => (
-                <li key={j.l} className="flex items-center gap-3">
+                <li key={j.l} className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-3">
                   <span className="grid h-10 w-10 shrink-0 place-items-center border-2 border-kreml/30 bg-oranyel text-white"><j.icon size={18} aria-hidden="true" /></span>
                   <div className="min-w-0">
                     <p className="whitespace-nowrap font-display text-lg font-extrabold leading-tight sm:text-xl">{j.v}</p>
